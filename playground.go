@@ -2,13 +2,32 @@ package main
 
 import "fmt"
 
-type hotdog int
+type pessoa struct {
+	nome  string
+	idade int
+}
 
-var h hotdog = 10
+type profissional struct {
+	pessoa
+	titulo  string
+	salario int
+}
 
 func main() {
-	x := 5
-	fmt.Printf("%v\n", h)
-	z := int(h) / x
-	fmt.Printf("%v", z)
+	pessoa1 := pessoa{
+		nome:  "João",
+		idade: 30,
+	}
+
+	pessoa2 := profissional{
+		pessoa: pessoa{
+			nome:  "Maricota",
+			idade: 31,
+		},
+		titulo:  "Pizzaiola",
+		salario: 10000,
+	}
+
+	fmt.Println(pessoa1)
+	fmt.Println(pessoa2)
 }
